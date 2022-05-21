@@ -1,0 +1,42 @@
+<html>
+<head>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <script>
+        async function load() {
+            const model = await tf.loadLayersModel('model_js/model.json');
+            return model;
+        };
+        function predict(model) {
+            // first we get the value in the input field
+            const temp = document.getElementById('temp').value
+            const nausea = document.getElementById('nausea').value
+            const lpain = document.getElementById('lpain').value
+            const upush = document.getElementById('upush').value
+            const mpain = document.getElementById('mpain').value
+            const burning = document.getElementById('burning').value
+            const inputTensor = tf.tensor([[parseFloat(temp),parseFloat(nausea),parseFloat(lpain)
+,parseFloat(upush),parseFloat(mpain),parseFloat(burning)]]); 
+            model.then(model => {
+                let result = model.predict(inputTensor);
+                alert(result);
+            });
+        };
+        const model = load();  // load model immediately to avoid delay when user clicks 'Predict'
+    </script>
+    <label for="temp">Enter Patient Temperature:</label>
+    <input id="temp" type="text"></input><br>
+    <label for="nausea">Does Patient have nausea (0/1):</label>
+    <input id="nausea" type="text"></input><br>
+    <label for="lpain">Does Patient have Lumbar Pain (0/1):</label>
+    <input id="lpain" type="text"></input><br>
+    <label for="upush">Does Patient have Urine pushing (continuous need for urination) (0/1):</label>
+    <input id="upush" type="text"></input><br>
+    <label for="mpain">Does Patient have Micturition pains (0/1):</label>
+    <input id="mpain" type="text"></input><br>
+    <label for="burning">Does Patient have Burning of urethra, itch, swelling of urethra outlet (0/1):</label>
+    <input id="burning" type="text"></input><br>
+    <button onclick="predict(model)">Predict</button>
+</body>
+</html>
