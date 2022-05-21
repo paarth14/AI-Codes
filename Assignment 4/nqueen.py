@@ -1,3 +1,5 @@
+# NQueen Algorithm - Assignment 4
+
 def satisfy_constraints(board, constraints, n, n_queens):
     c1, c2 = constraints
     for col1 in range(n):
