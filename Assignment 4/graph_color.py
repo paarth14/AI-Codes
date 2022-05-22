@@ -1,3 +1,5 @@
+# Graph Coloring Algorithm - Assignment 4
+
 class Graph:
     def __init__(self, edges, n):
         self.adjList = [[] for _ in range(n)]
