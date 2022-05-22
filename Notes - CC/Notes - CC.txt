@@ -1,0 +1,94 @@
+Notes - Cloud Computing
+
+* Salesforce using Apex Programming Language :-
+
+Step 1) :- Go to Salesforce.com
+Step 2) :- Login there
+Step 3) :- Click on Settings and go to Developer Console.
+Step 4) :- Click on File > New > Apex Class
+Step 5) :- Enter Class name : FirstClass
+Step 6) :- Write this Code :-
+public class FirstClass 
+{
+	public static void firstMethod()
+    {
+        System.debug('Hello to Apex with the Hulk');
+	}
+}
+Step 7) :- Save it
+Step 8) :- Click on Debug > Anonymous window
+Step 9) :- Click on Open Log > Execute
+Step 10) :- Click on Debug Only
+Step 11) :- Print statement will be generated.
+
+* Host HTML Project on AWS S3 Bucket :-
+
+Step 1) :- Login to AWS Management Console
+Step 2) :- Search for S3 and Click on that.
+Step 3) :- Click on create New Bucket
+Step 4) :- After Clicking on create bucket --> Write the bucket name.
+Step 5) :- Turn off --> Block all public access and Acknowledge it.
+Step 6) :- Click on 'Create Bucket'.
+Step 7) :- Click on 'Static Website Hosting' --> Then --> Click on Enable it.
+Step 8) :- Type 'index.html'
+Step 9) :- Click on Save Changes.
+Step 10) :- Go to Objects and Upload all files and folders of your project.
+Step 11) :- To Make it publicly accessible, go to permissions tab.
+Step 12) :- Edit JSON Details
+Step 13) :- Add this Code :- 
+{
+  "Id": "Policy1380877762691",
+  "Statement": [
+    {
+      "Sid": "Stmt1380877761162",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Effect": "Allow",
+      "Resource": "arn:aws:s3:::clock-project/*",
+      "Principal": {
+        "AWS": [
+          "*"
+        ]
+      }
+    }
+  ]
+}
+
+Step 14) :- Go to Properties and Click on Static Hosting Link
+
+* AWS EC2 Instance:-
+
+Step 1) :- Open AWS Management Console
+Step 2) :- Login there
+Step 3) :- Click on EC2
+Step 4) :- Select Amazon Linux 2 Kernel 5.10 AMI 2.0.20220426.0 x86_64 HVM gp2
+Step 5) :- Remain all things as it is.
+Step 6) :- Create a new key-pair (Name it like : my-ec2-key).
+Step 7) :- Click on 'Launch Instance'.
+Step 8) :- Click on Instance ID.
+Step 9) :- Instance Summary will be Generated.
+
+* Google App Engine :-
+
+Step 1) :- Open console.cloud.google.com
+Step 2) :- Create 'New Project'
+Step 3) :- Open newly created project dashboard.
+Step 4) :- Open Google Cloud Shell
+Step 5) :- Type :- gcloud projects list
+Step 6) :- Click on API & Services and then on Enabled API & Services.
+Step 7) :- Search for "app engine admin api"
+Step 8) :- Enable it.
+Step 9) :- Type this command --> gcloud config set project PROJECT_ID Eg: gcloud config set project sampleapplication-350812
+Step 10) :- Go to Dashboard in App Engine
+Step 11) :- Type the Command :- gcloud app create
+Step 12) :- Choose the region : 14
+Step 13) :- Type Command :- git clone https://github.com/YashCoder03/cloud.git
+Step 14) :- cloudshell workspace \cloud/hello_world
+Step 15) :- Type Command :- cd cloud --THEN--> cd hello_world
+Step 16) :- python3 -m venv env
+source env/bin/activate
+Step 17) :- pip install -r requirements.txt
+Step 18) :- python main.py
+
+
